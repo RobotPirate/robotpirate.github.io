@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Floof</title>
+	<link href="https://fonts.googleapis.com/css?family=Coiny|Open+Sans" rel="stylesheet">
+	<style type="text/css">
+
+		html, body{
+			padding: 0;
+			margin: 0;
+			font-family: 'Open Sans', sans-serif;
+			font-size: 16px;
+			font-weight: bold;
+			background-color: #FEDCD2;
+
+		}
+
+		img{
+			width: 300px;
+			border: dotted #128980 4px;
+			border-radius: 50px;
+		}
+
+		#header{
+			font-size: 80px;
+			font-family: 'Coiny', cursive;
+			color:#DF744A;
+			text-align: center;
+			padding-top: 40px;
+			padding-bottom: 20px;
+		}
+
+		#main{
+			padding-top: 10px;
+			padding-left: 10px;
+			padding-right: 10px;
+			margin: 0;
+		}
+
+		#main h1{
+
+		}
+
+		.row{
+			width: 1134px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 20px;
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+
+		.row:after{
+			clear: both;
+			content: "";
+			/*for browser bugs*/
+			display: table;
+		}
+
+		.dogs{
+			float: left;
+			margin-right: 25px;
+			margin-left: 25px;
+			padding: 10px;
+		}
+
+		.dogs:hover .breedname {
+			visibility: visible;
+		}
+
+		.breedname{
+			color: #128980;
+			text-align: center;
+			visibility: hidden;
+		}
+
+		#footer {
+			font-family: 'Coiny', cursive;
+			text-align: center;
+			color:#DF744A;			
+			padding: 30px 0;
+			margin-top:30px;
+			font-size: 14px;
+		}
+
+
+	</style>
+</head>
+<body>
+
+	<div id="header">FLOOF!</div>
+	<div id="main">
+		<!-- <h1>Gallery</h1> -->
+		<div class="row">
+			<div class="dogs">
+				<img src="australian.jpg" alt="australian shepherd">
+				<div class="breedname">
+					Australian Shepherd
+				</div>
+			</div>
+			<div class="dogs">
+				<img src="chowchow.jpg" alt="chow chow">
+				<div class="breedname">
+					Chow Chow
+				</div>
+			</div>
+			<div class="dogs">
+				<img src="keeshond.jpg" alt="keeshond">
+				<div class="breedname">
+					Keeshond
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="dogs">
+				<img src="maltese.jpg" alt="maltese">
+				<div class="breedname">
+					Maltese
+				</div>
+			</div>
+			<div class="dogs">
+				<img src="newfie.jpg" alt="newfie">
+				<div class="breedname">
+					Newfoundland Dog
+				</div>
+			</div>
+			<div class="dogs">
+				<img src="samoyed.jpg" alt="samoyed">
+				<div class="breedname">
+					Samoyed
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		woof
+	</div>
+
+</body>
+</html>

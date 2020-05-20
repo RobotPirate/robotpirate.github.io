@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- meta tag to declare it wil be responsive
+	     make width same size as device width -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Sssssnakes</title>
+	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Roboto+Slab" rel="stylesheet">
+	<!-- bring in external style sheet -->
+	<link rel="stylesheet" type="text/css" href="snakestyles.css">
+
+
+	<style>
+		/*allows you to use fonts that you own*/
+		/*@font-face{
+			font-family:"Coolvetica";
+			src: url("coolvetica/coolvetica.ttf");
+		}*/
+
+		html,body {
+			padding: 0;
+			margin: 0;
+		}
+
+		body {
+			background-color: #4d7f96;
+			/*font-family:"Coolvetica";*/
+			font-family: 'Roboto Slab', serif;
+
+		}
+
+		h2 {
+			margin-left: 2%;
+		}
+
+		ul, li {
+			margin-left: 2%;
+			padding-left: 1%;
+		}
+
+		li{
+			margin-top: 3%;
+			margin-bottom: 3%;
+		}
+
+		#header {
+			/*background-image: url('http://303.itpwebdev.com/~ta303/assets/the-office/theoffice.jpg');
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;*/
+			background-color: black;
+			padding: 8% 0;
+			font-family: 'Permanent Marker', cursive;
+
+		}
+
+		#header h1 {
+			text-align: center;
+			color: white;
+			font-size: 40px;
+			text-shadow: 4px 3px 0 #7A7A7A;
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+
+		#mainpicture img{
+			display: block;
+			margin: 2%;
+			width: 96%;
+			margin-right: auto;
+			margin-left: auto;
+			border: black 3px solid;
+		}
+
+		#productinfo {
+			margin: 2%;
+			width: 96%;
+			margin-right: auto;
+			margin-left: auto;
+		}
+
+/*		#otherproducts {
+			display: block;
+			margin: 10%;
+			width: 80%;
+			margin-right: auto;
+			margin-left: auto;
+			border: black 1px solid;
+		}
+
+*/
+		#otherproducts h3 {
+			margin: 2%;
+			width: 96%;
+			margin-right: auto;
+			margin-left: auto;
+			margin-top: 50px;
+		}
+
+		.product {
+			background: black;
+			/*display: block; */
+			margin: 5% 15%;
+			width: 70%;
+			margin-right: auto;
+			margin-left: auto;
+			position: relative;
+			border: black 2px solid;
+			box-sizing: border-box;
+
+		}
+
+		.product img {
+			width: 100%;
+			/*got rid of extra space below image*/
+			vertical-align: top;
+		}
+
+		.product .overlay {
+			/*background-color: black;*/
+			position: absolute;
+			/*pin to all four corners when using position absolute. 0 pix from top, bottom...*/
+			top: 0;
+			bottom: 0;
+			right: 0;
+			left:0;
+			visibility: hidden;
+			color: white;
+			text-align: center;
+			padding-top: 40%;
+		}
+
+
+		.product:hover .overlay{
+			visibility: visible;
+			/*display: none;*/
+			opacity: 0.7;
+			background-color: black;
+		}
+
+		#footer {
+			background-color: black;
+			color: white;
+			padding: 10px 0;
+			text-align: center;
+		}
+
+
+
+		/* Tablets */
+		@media (min-width: 768px){
+			#header h1 {
+				font-size: 60px;
+			}
+			
+			#main {
+				display: inline-block;
+			}
+
+			#mainproductcontainer {
+				width: 100%;
+				display: block;
+				margin: 0 auto;
+			}
+
+			h2 {
+				/*float: left;*/
+				margin-left: 5%;
+				font-size: 30px;
+			}
+
+			ul, li {
+				margin-left: 1%;
+				padding-left: 2%;
+			}
+
+			#mainpicture img{
+				float: left;
+				margin: 5%;
+				margin-top: 0;
+				padding: 0;
+				width: 30%;
+				border: black 2px solid;
+				
+			}
+
+			#productinfo {
+				float: left;
+				width: 50%;
+				margin:0;
+				padding:0;
+				padding-left: 2%;
+				padding-right: 7%;
+			}
+
+			#productinfo h4 {
+				margin-top: 0;
+			}
+
+			#productinfo:after {
+				clear: both;
+				content: "";
+				/*for browser bugs*/
+				display: table;
+			}
+
+			#mainproductcontainer:after {
+				clear: both;
+				content: "";
+				/*for browser bugs*/
+				display: table;
+			}
+			
+			/*make certain things go away in mobile */
+			/*#content img {
+				display: none;
+			}*/
+
+			#otherproducts h3 {
+				clear: both;
+				width: 90%;
+				margin-right: auto;
+				margin-left: auto;
+				margin-top: 80px;
+				margin-bottom: 0;
+				font-size: 25px;
+			}
+
+			.product {
+				background-color: #4d7f96;
+				float:left;
+				margin: 3% 10%;
+				width: 30%;
+			}
+
+			#otherproducts:after {
+				clear: both;
+				content: "";
+				/*for browser bugs*/
+				display: table;
+			}
+
+			#footer {
+				clear: both;
+				margin-top: 10%;
+				padding: 2% 0;
+			}
+		}
+
+
+		/* Larger devices - Desktops Laptops */
+		@media (min-width: 992px){
+			h2 {
+				font-size: 40px;
+				/*float: left;*/
+				margin-left: 5%;
+			}
+
+			#header h1 {
+				font-size: 80px;
+			}
+			
+			#main {
+				display: inline-block;
+			}
+
+			#mainproductcontainer {
+				width: 100%;
+				/*display: inline-block;*/
+				max-width: 1000px;
+				margin: 0 auto;
+			}
+
+			#mainproductcontainer:after {
+				clear: both;
+				content: "";
+				/*for browser bugs*/
+				display: table;
+			}
+			
+			#mainpicture img{
+				float: left;
+				margin: 5%;
+				margin-top: 0;
+				padding: 0;
+				width: 30%;
+				border: black 2px solid;
+				
+			}
+
+			#productinfo {
+				float: left;
+				width: 50%;
+				margin:0;
+				padding:0;
+				padding-left: 2%;
+				padding-right: 7%;
+				font-size: 26px;
+			}
+
+			#productinfo h4 {
+				margin-top: 0;
+			}
+
+
+			
+			
+			/*make certain things go away in mobile */
+			/*#content img {
+				display: none;
+			}*/
+
+			#otherproducts {
+				width: 100%;
+				display: inline-block;
+			}
+
+			#otherproducts h3 {
+				width: 91%;
+				margin-right: auto;
+				margin-left: auto;
+				margin-top: 5%;
+				margin-bottom: 0;
+				font-size: 30px;
+			}
+
+			.product {
+				background-color: #4d7f96;
+				float:left;
+				margin: 2% 4.5%;
+				width: 16%;
+			}
+
+			#otherproducts: after {
+				clear: both;
+				content: "";
+				/*for browser bugs*/
+				display: table;
+			}
+
+			#footer {
+				clear: both;
+				margin-top: 10%;
+				padding: 2% 0;
+			}
+
+
+		}
+
+	</style>
+</head>
+<body>
+	<div id="header">
+		<h1>Ssssnake Sssstore</h1>
+	</div>
+	
+	<div id="main">
+		<div id="mainproductcontainer">
+			<h2>Viper Mellow Yellow</h2>
+			<div id="mainpicture">
+				<img src="yellowviper.jpg" alt="yellow snake">
+			</div>	
+			<div id="productinfo">
+				<h4>Price: $66.66</h4>
+				<h4>86 reviews</h4>
+				<div id="descrption">
+					<h4>Description</h4>
+					<ul>
+						<li>	
+							A relatively small species of pit-viper, perfect for apartments and dorm rooms, with adults ranging from 55–82 cm (22–32 in) long, and females being longer and more variable in size than males, growing up to 69 cm (27 in) long.
+						</li>
+						<li>
+							Features a wide, triangular-shaped head, and eyes with vertical pupils. So it can track you better.
+						</li>
+						<li>
+							Specially fitted with large, hypodermic needle-like fangs in the front of the upper jaw that conveniently fold back when not in use, and equipped with heat sensitive organs, or pits, located on either side of the head between the eye and nostril. More teeth means more fun!
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div id="otherproducts">
+			<h3>Related Products</h3>
+			<div class="product">
+				<div class="overlay">The Whole-body Anaconda Experience</div>
+				<img src="anaconda.jpg" alt="big ass snake"> 
+				<!-- The Whole-body Ananconda Experience -->
+			</div>
+			<div class="product">
+				<div class="overlay">Bubbles the Boa</div>
+				<img src="boa.jpg" alt="less big ass snake">
+				<!-- Bubbles the Boa -->
+			</div>
+			<div class="product">
+				<div class="overlay">The Coral Cuddler</div>
+				<img src="coral.jpg" alt="death snake">
+				<!-- The Coral Cuddler -->
+			</div>
+			<div class="product">
+				<div class="overlay">Little Miss Gigi Garter</div>
+				<img src="garter.jpg" alt="nice snake">
+				<!-- Little Miss Gigi Garter -->
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		footers are for lizards
+	</div>
+</body>
+</html>

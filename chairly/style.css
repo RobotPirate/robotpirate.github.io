@@ -1,0 +1,106 @@
+body {
+	/*font-size: 30px;*/
+}
+
+img {
+	width: 100%;
+	max-width: 250px;
+}
+
+.row > h4 {
+	margin-top: 20px;
+	padding-left: 20px;
+	padding-bottom: 40px;
+}
+
+.jumbotron {
+	/*background-position: center bottom;*/
+}
+
+.myjumbo {
+	 background: url(header.jpg) fixed center no-repeat;
+	 background-size: auto 100%;
+	 background-size: cover;
+	 background-position: center bottom;
+	 padding-top: 70px;
+	 padding-bottom: 530px;
+}
+
+.productPic {
+	max-width: 100%;
+	height: auto;
+}
+
+.productDescription {
+	margin-top: 30px;
+}
+
+.btn-mybutton {
+	background-color: #505561;
+	border-color: #505561;
+	color: white;
+}
+
+#brandtitle {
+	color: #505561;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	font-weight: bold;
+	font-family: 'Tangerine', cursive;
+	font-size: 70px;
+	/*padding-left: 100px;*/
+	/*margin-top:0px;*/
+	margin-left: 80px;
+
+}
+
+#slogan {
+	margin-top: -40px;
+	margin-left: 5px;
+	font-family: Arial;
+	font-size: 20px;
+	font-weight: normal;
+	text-shadow: none;
+}
+
+#footer {
+	background-color: black;
+	color: white;
+	padding: 10px 0;
+	text-align: center;
+	margin-top: 50px;
+}
+
+
+
+
+
+
+/*tablets*/
+@media (min-width: 768px){
+
+	#brandtitle {
+		font-size: 90px;
+		margin-left: 150px;
+	}
+
+	#slogan {
+		margin-top: -45px;
+		margin-left: 9px;
+	}
+
+}
+
+/* Larger devices - Desktops Laptops */
+@media (min-width: 992px){
+
+	#brandtitle {
+		font-size: 100px;
+		margin-left: 350px;
+	}
+
+	#slogan {
+		margin-top: -50px;
+		margin-left: 12px;
+	}
+
+}

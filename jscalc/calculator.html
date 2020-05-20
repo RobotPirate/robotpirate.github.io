@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Calculator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+	<style>
+		body {
+			position: relative;
+			overflow: hidden;
+		}
+
+		img{
+			/*workaround to get background image to lighter opacity. Note body position & overflow*/
+			position: absolute;
+		    left: 0;
+		    top: 0;
+		    width: 100%;
+		    height: auto;
+		    opacity: 0.5;
+		}
+
+		#display {
+			font-size: 2em;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<img src="whitecrisscross.jpg">
+		<div class="row">
+			<h1 class="col-12 text-center mt-5">JS Calculator</h1>
+		</div> <!-- .row -->
+		<div class="row">
+			<div id="calculator" class="mt-4 col-12 col-md-6 ml-md-auto mr-md-auto col-lg-4">
+				<div class="row">
+					<input type="text" id="display" class="col-12 text-right form-control" value="OFF" disabled>
+				</div> <!-- .row -->
+				<div class="row">
+					<button class="col-6 btn btn-lg btn-outline-dark" id="onoff">ON / OFF</button>
+					<button class="col-6 btn btn-lg btn-outline-dark" id="ac">AC</button>
+				</div> <!-- .row -->
+				<div class="row">
+					<button class="col-3 btn btn-lg btn-outline-dark calcBtn number" id="7">7</button>
+					<button class="col-3 btn btn-lg btn-outline-dark calcBtn number" id="8">8</button>
+					<button class="col-3 btn btn-lg btn-outline-dark calcBtn number" id="9">9</button>
+					<button class="col-3 btn btn-lg btn-outline-dark calcBtn" id="/">/</button>
+				</div> <!-- .row -->
+				<div class="row">
+					<button class="col-3 btn btn-lg btn-outline-dark calcBtn number" id="4">4</button>
+					<button class="col-3 btn btn-lg btn-outline-dark calcBtn number" id="5">5</button>
+					<button class="col-3 btn btn-lg btn-outline-dark calcBtn number" id="6">6</button>
+					<button class="col-3 btn btn-lg btn-outline-dark calcBtn" id="x">x</button>
+				</div> <!-- .row -->
+				<div class="row">
+					<button class="col-3 btn btn-lg btn-outline-dark calcBtn number" id="1">1</button>
+					<button class="col-3 btn btn-lg btn-outline-dark calcBtn number" id="2">2</button>
+					<button class="col-3 btn btn-lg btn-outline-dark calcBtn number" id="3">3</button>
+					<button class="col-3 btn btn-lg btn-outline-dark calcBtn" id="-">-</button>
+				</div> <!-- .row -->
+				<div class="row">
+					<button class="col-3 btn btn-lg btn-outline-dark calcBtn number" id="0">0</button>
+					<button class="col-3 btn btn-lg btn-outline-dark calcBtn number" id="dot">.</button>
+					<button class="col-3 btn btn-lg btn-outline-dark calcBtn" id="=">=</button>
+					<button class="col-3 btn btn-lg btn-outline-dark calcBtn" id="+">+</button>
+				</div> <!-- .row -->
+			</div> <!-- #calculator -->
+		</div> <!-- .row -->
+	</div> <!-- .container -->
+
+
+	<script type="text/javascript">
+
+		let calcOn = false;
+		let result = 0;
+		let numInput = LHS = RHS = currOp = prevOp = "";
+		let pointCount = 0;
+	
+		//ON OFF BUTTON
+		let toggleOnOff = function(){
+			if(!calcOn){
+				result = pointCount = 0;
+				numInput = LHS = RHS = currOp = prevOp = "";
+				calcOn = true;
+				document.querySelector("#display").value = result;
+			}else{
+				result = pointCount = 0;
+				numInuput = LHS = RHS = currOp = prevOp = "";
+				calcOn = false;
+				document.querySelector("#display").value = "OFF";
+			}
+		}
+		document.querySelector("#onoff").onclick = function(){
+			toggleOnOff();
+		}
+		document.body.onkeyup = function(e){    
+			// console.log(e);
+			// if(e.key == " ")
+			console.log(e);
+			if(e.keyCode == 32){
+				toggleOnOff();
+			}
+		}
+
+		//AC button
+		let allClear = function(){
+			if(calcOn){
+				document.querySelector("#display").value = 0;
+				result = pointCount = 0;
+				numInput = LHS = RHS = currOp = prevOp = "";
+			}
+		}
+		document.querySelector("#ac").onclick = function(){
+			allClear();
+		}
+
+		let validateNumEntry = function(obj){
+			if(obj.id == "dot"){
+				pointCount++;
+				console.log("pointcount: " + pointCount);
+				if(pointCount >= 2){
+					return;
+				}else{
+					numInput += ".";
+					console.log("numINput: " + numInput);
+					document.querySelector("#display").value = numInput;
+				}
+			}else{
+				numInput += obj.innerHTML;
+				console.log("numINput: " + numInput);
+				if(parseFloat(numInput) == 0){
+					// numInput = "";
+					document.querySelector("#display").value = "0";
+				}else{
+					document.querySelector("#display").value = numInput;
+				}
+			}
+		}
+
+		//add onclick to all the buttons
+		let buttons = document.querySelectorAll(".calcBtn");
+		for(let i = 0; i < buttons.length; ++i){
+			buttons[i].onclick = function(){
+				if(calcOn){
+					//no prev input
+					if(LHS == ""){
+						//if it's a number pressed
+						if(this.classList.contains("number")){
+							//only allow for one dot. Dot resets at op
+							validateNumEntry(this);
+						}
+						else{
+							//op pressed, no previous input, concat to LHS
+							LHS = numInput;
+							numInput = "";
+							currOp = this.innerHTML;
+							pointCount = 0;
+						}
+					}
+					else{
+						//LHS has value
+						if(this.classList.contains("number")){
+							//input is a number, already op in the buffer
+							validateNumEntry(this);
+						}else{
+							RHS = numInput;
+							numInput = "";
+							prevOp = currOp;
+							currOp = this.innerHTML;
+							pointCount = 0;
+							//RHS has value
+
+							if(RHS != ""){
+								//display current result
+								if( prevOp == "+"){
+									result = parseFloat(LHS) + parseFloat(RHS);
+									document.querySelector("#display").value = result;
+									//push to LHS
+									LHS = result;
+									// displayEqual();
+								}
+								else if( prevOp == "-" ){
+									result = parseFloat(LHS) - parseFloat(RHS);
+									console.log(result);
+									document.querySelector("#display").value = result;
+									LHS = result;
+									// displayEqual();
+								}
+								else if( prevOp == "x" ){
+									console.log("mult")
+									result = parseFloat(LHS) * parseFloat(RHS);
+									console.log(result);
+									document.querySelector("#display").value = result;
+									LHS = result;
+									// displayEqual();
+								}
+								else if( prevOp == "/" ){
+									console.log("div");
+									result = parseFloat(LHS) / parseFloat(RHS);
+									console.log(result);
+									console.log( "isNan: " +isNaN(result) );
+									document.querySelector("#display").value = result;
+									LHS = result;
+									// displayEqual();
+									if( isNaN(result) || !isFinite(result)){
+										//start over. clear everything
+										console.log("result not a number");
+										result = pointCount = 0;
+										numInput = LHS = RHS = currOp = prevOp = "";
+										console.log(result);
+										console.log(pointCount);
+										console.log("numInput:"+numInput);
+										console.log("LHS:"+LHS);
+										console.log("RHS:"+RHS);
+										console.log("currop:"+currOp);
+										console.log("prevOp:"+prevOp);
+									}
+								}
+							}							
+						}
+					}
+				}
+				
+			}
+		}			
+
+	</script>
+
+</body>
+</html>

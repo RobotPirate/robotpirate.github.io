@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+	<title></title>
+	<meta charset="utf-8">
+	<link href="https://fonts.googleapis.com/css?family=Tangerine&?family=Inconsolata:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allura&family=Parisienne&display=swap" rel="stylesheet">
+	<!-- font-family: 'Alex Brush', cursive; font-family: 'Allura', cursive; font-family: 'Parisienne', cursive;-->
+	<!--  font-family: 'Quicksand', sans-serif;-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+
+    <style type="text/css">
+    	
+    	body {
+    		background-image: url("res/sand.jpg");
+    		background-color: #F1F0EE;
+    		font-family: 'Insonsolata', monospace;
+    	}
+
+    	img{
+    		width: 200px;
+			border-radius: 5px;
+			box-shadow: 8px 14px 38px rgba(39,44,49,.06), 1px 3px 8px rgba(39,44,49,.03);
+			overflow: hidden; /* otherwise header image won't respect rounded corners */
+			/*background: white;*/
+			transition: all .5s ease; /* back to normal */
+			opacity: .8;
+		}
+
+		img:hover {
+		  transform: translate3D(0,-1px,0) scale(1.08); /* move up slightly and zoom in */
+		  box-shadow: 8px 28px 50px rgba(39,44,49,.07), 1px 6px 12px rgba(39,44,49,.04);
+		  transition: all .4s ease; /* zoom in */
+		  cursor: pointer;
+		  opacity: 1.0;
+		}
+
+		.nav-link {
+    		font-family: 'Inconsolata', monospace;
+			color: #CEC1B8;
+		}
+
+		.title {
+			font-family: 'Parisienne', cursive;
+			font-size: 30pt;
+			font-weight: 300;
+			color: #ABA49F;
+			padding-left: 55px;
+		}
+
+    	.row {
+    		display: flex;
+    		padding: 50px;
+ 			margin: 90px;
+ 			margin-top: 0px;
+/*    		flex-direction: row;
+    		flex-wrap: wrap;*/
+    		justify-content:center;
+    		/*background: blue;*/
+    		margin-bottom: 30px;
+    	}
+
+    	.project {
+    		/*background: red;*/
+    		margin: 50px;
+    		max-width: 250px;
+    		min-width: 200px;
+    		min-height: 250px;
+/*    		width: 200px;
+    		height: 50px;*/
+    		/*border: solid black 5px;*/
+    		border-radius: 10px;
+    		position: relative;
+    	}
+
+    	.project-name {
+    		font-family: 'Inconsolata', monospace;
+    		text-align: bottom;
+    		vertical-align: bottom;
+    		position: absolute;
+    		bottom: 0;
+    		padding-left: 5px;
+    	}
+
+    	.project-title {
+    		margin: 0;
+    		padding: 0;
+    	}
+
+    	.project-des {
+    		margin: 0;
+    		padding: 0;
+    		font-size: 14px;
+    		font-style: italic;
+    	}
+
+    	.footer {
+    		font-family: 'Inconsolata', monospace;
+    		margin-bottom: 20px;
+    		margin-top: 100px;
+    	}
+
+    </style>
+
+</head>
+<body>
+	<nav class="navbar navbar-expand-md navbar-light" style="background-color: #F0ECEB;">
+	  <!-- Brand -->
+	  <a class="navbar-brand title" href="index.html" style="color: #756b64;">Cerina da Graca</a>
+	  <!-- Toggler/collapsibe Button -->
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+
+	  <!-- Navbar links -->
+	  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+	    <ul class="navbar-nav">
+	      <li class="nav-item">
+	        <a class="nav-link" href="home.html"><strong>web projects</strong></a>
+	      </li>
+	      <!-- <li class="nav-item">
+	        <a class="nav-link" href="team.html">Link2</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="#" >Link3</a>
+	      </li>  -->
+	    </ul>
+	  </div> 
+	</nav>
+
+	<section>
+		<div class="row">
+			<div class="project">
+				<a href="chairly/home.html" target="_blank">
+					<img src="res/chair3.jpg" class="img-fluid mx-auto d-block" >
+				</a>
+				<div class="project-name">
+					<div class = "project-title">Chairly</div>
+					<div class="project-des">html, css, bootstrap</div>
+				</div>
+			</div>
+			<div class="project">
+				<a href="bojack/bojack.html" target="_blank">
+					<img src="res/bojack1.jfif" class="img-fluid productPic mx-auto d-block">
+				</a>
+				<div class="project-name">
+					<div class = "project-title">Bojack fansite</div>
+					<div class="project-des">html, css</div>
+				</div>
+			</div>
+			<div class="project">
+				<a href="usc_images/home.html" target="_blank">
+					<img src="res/trojan.jpg" class="img-fluid mx-auto d-block">
+				</a>
+				<div class = "project-title">USC Images</div>
+				<div class="project-des">html, css, javascript</div>
+			</div>
+			<div class="project">
+				<a href="jscalc/Calculator.html" target="_blank">
+					<img src="res/whitecrisscross.jpg" class="img-fluid mx-auto d-block">
+					<!-- Image @jjying -->
+				</a>
+				<div class = "project-title">Calculator</div>
+				<div class="project-des">javascript</div>
+			</div>
+			<div class="project">
+				<a href="dogs/gallery.html" target="_blank">
+					<img src="res/dog.jpg" class="img-fluid mx-auto d-block">
+				</a>
+				<div class = "project-title">Cute Dogs</div>
+				<div class="project-des">html, css</div>
+			</div>
+			<div class="project">
+				<a href="snake/product.html" target="_blank">
+					<img src="res/snake2.jpg" class="img-fluid mx-auto d-block">
+				</a>
+				<div class="project-name">
+					<div class = "project-title">The Snake Store</div>
+					<div class="project-des">mobile first, html, css</div>
+				</div>
+			</div>
+			
+			
+	</section>
+
+	<section class="container text-center footer">
+		copyright 2020
+	</section>
+</body>
+</html>
